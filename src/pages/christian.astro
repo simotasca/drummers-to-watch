@@ -1,0 +1,105 @@
+---
+import "./christian.css";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="font-['Lora'] text-sky-950">
+    <div
+      class="fixed w-[50vw] h-screen left-0 top-0 bg-sky-800 bg-opacity-30 -z-50">
+    </div>
+    <div class="fixed w-[50vw] h-screen left-[50vw] top-0 bg-teal-100 -z-50">
+    </div>
+    <div class="relative w-screen h-screen">
+      <header
+        class="max-w-screen-xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center py-4 px-8">
+        <div>
+          <button
+            class="group block font-sans tracking-widest border-2 border-sky-950 bg-sky-800 py-2 px-8 text-white">
+            CONTACT ME
+          </button>
+        </div>
+        <div
+          class="flex items-center gap-4 mx-auto w-fit font-bold bg-white px-2 shadow-md">
+          <p><a href="#">IT</a></p>
+          <p><a href="#">EN</a></p>
+          <p><a href="#">FR</a></p>
+        </div>
+        <div>
+          <ul
+            class="flex justify-end items-center gap-8 uppercase font-[Byotone] font-medium text-right tracking-wider">
+            <li><a href="#">Homepage</a></li>
+            <li><a href="#">Consulence</a></li>
+            <li><a href="#">About Me</a></li>
+            <li>
+              <button
+                class="ml-auto px-2.5 py-0.5 pt-1 mb-0.5 bg-sky-700 w-fit text-white tracking-wider">
+                BLOG
+              </button>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2">
+        <div class="relative p-4">
+          <!-- WHITE CIRCLE -->
+          <div
+            class="absolute -z-10 left-1/2 top-1/2 w-[102%] rounded-full aspect-square -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-sky-800">
+          </div>
+
+          <!-- FRUIT CIRCLE -->
+          <div
+            class="absolute -z-20 left-1/2 top-1/2 w-[190%] -translate-x-1/2 -translate-y-1/2 border-2 border-sky-800 rounded-full overflow-hidden">
+            <div class="relative w-full h-full">
+              <img
+                class="w-full rounded-full aspect-square object-cover border-0 animate-rotation"
+                src="/christian/fruit.png"
+              />
+              <!-- <div
+                class="absolute top-0 left-0 bg-sky-950 bg-opacity-70 w-full h-full z-50">
+              </div> -->
+            </div>
+          </div>
+
+          <!-- CONTENT -->
+          <main class="max-w-4xl text-center px-4 min-w-[420px]">
+            <div class="relative w-fit mx-auto">
+              <div
+                class="absolute w-[140%] bottom-0 left-1/2 -translate-x-1/2 -z-10">
+                <img class="w-full opacity-20" src="/christian/logo.svg" />
+              </div>
+              <h1 class="text-5xl font-bold italic mb-1">Euthimia</h1>
+            </div>
+            <h2 class="text-xl leading-[1.1]">
+              Parliamo di cose incredibili,<br /> ma alla portata di tutti.
+            </h2>
+            <div class="mx-auto h-10 bg-sky-800 w-px my-4"></div>
+            <button class="font-sans font-black text-lg tracking-wider">GET STARTED</button>
+          </main>
+        </div>
+      </div>
+
+      <!-- SOCIAL ICONS -->
+      <div class="absolute bottom-0">
+        <img class="w-8 ml-6 mb-4" src="/christian/social.png" alt="" />
+      </div>
+    </div>
+
+    <section class="max-w-screen-xl p-4 mx-auto z-50">
+      <div class="bg-white bg-opacity-60 h-96 mt-8 shadow-md shadow-slate-300">
+      </div>
+    </section>
+  </body>
+</html>

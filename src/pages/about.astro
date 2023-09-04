@@ -1,0 +1,122 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../style.css";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D2W | About</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-neutral-900 font-dark text-white overflow-x-hidden">
+    <Header />
+
+    <!-- BACKGROUND IMAGE -->
+    <div class="fixed w-[80vw] right-20 stack opacity-30 rotate-12 -z-10">
+      <img
+        class="w-full filter brightness-125"
+        src="/liam-menneci.jpg"
+        alt="Liam Menneci"
+      />
+      <div
+        class="w-full h-full z-10"
+        style="background: radial-gradient(51.31% 51.31% at 50% 37.08%, rgba(0, 0, 0, 0.00) 0%, #1A1A1A 100%);">
+      </div>
+    </div>
+
+    <!-- ABOUT THE PROJECT -->
+    <div
+      class="max-w-screen-lg px-6 mx-auto mt-10 grid grid-cols-5 gap-6 mb-10">
+      <h1
+        class="col-span-full text-5xl font-semibold xs:text-center mb-2 leading-[0.8] max-sm:-order-1">
+        About <span class="text-violet-400">the project</span>
+      </h1>
+      <div class="text-2xl leading-5 col-span-full sm:col-span-3">
+        <p class="text-4xl font-semibold leading-8 mb-6 sm:mt-10">
+          Hello and welcome to
+          <img class="inline w-40 mt-1" src="/logo-text.svg" alt="" />
+        </p>
+        <p class="mb-4">
+          My name is <b>Liam Menneci.</b> I am a young drummer and content creator
+          from Italy.
+        </p>
+        <p class="mb-4">
+          I have created <b>Drummers to Watch</b> to shine a spotlight on fellow
+          talented young drummers from all corners of the world. This project serves
+          as a platform for young musicians to inspire and uplift others in their
+          own musical journey.
+        </p>
+        <p class="mb-4">
+          Through <b>interviews, collaborations, and drumming showcases</b>, D2W
+          celebrates these drummers' exceptional abilities, from mesmerizing
+          beats to jaw-dropping solos and their commitment to storytelling
+          through the universal language of music.
+        </p>
+        <p class="mb-4">
+          Join me as we celebrate the raw talent, dedication, and creativity of
+          young drummers around the world.
+        </p>
+        <p>D2W is a partner project of <b>Drumming Connects Us</b></p>
+      </div>
+      <img
+        class="block col-span-full sm:col-span-2 max-sm:-order-1 w-4/5 sm:w-full max-w-[280px] aspect-[3/4] ml-auto xs:mx-auto object-cover"
+        src="/liam-menneci.jpg"
+        alt="Liam Menneci"
+      />
+    </div>
+
+    <img src="/logo.svg" alt="Logo D2W" class="mx-auto my-20" />
+    <!-- ABOUT ME -->
+    <div
+      class="max-w-screen-lg px-6 mx-auto mt-10 grid grid-cols-5 gap-6 mb-10">
+      <h1
+        class="col-span-full text-5xl font-semibold mx-auto mb-2 leading-[0.8] max-sm:-order-1">
+        About <span class="text-violet-400">Me</span>
+      </h1>
+      <img
+        class="block col-span-full sm:col-span-2 max-sm:-order-1 w-4/5 sm:w-full max-w-[280px] aspect-[3/4] ml-auto xs:mx-auto object-cover"
+        src="/liam-menneci.jpg"
+        alt="Liam Menneci"
+      />
+      <div class="text-2xl leading-5 col-span-full sm:col-span-3">
+        <p class="text-4xl font-semibold leading-8 mb-6 sm:mt-10">
+          Hello and welcome to
+          <img class="inline w-40 mt-1" src="/logo-text.svg" alt="" />
+        </p>
+        <p class="mb-4">
+          My name is <b>Liam Menneci.</b> I am a young drummer and content creator
+          from Italy.
+        </p>
+        <p class="mb-4">
+          I have created <b>Drummers to Watch</b> to shine a spotlight on fellow
+          talented young drummers from all corners of the world. This project serves
+          as a platform for young musicians to inspire and uplift others in their
+          own musical journey.
+        </p>
+        <p class="mb-4">
+          Through <b>interviews, collaborations, and drumming showcases</b>, D2W
+          celebrates these drummers' exceptional abilities, from mesmerizing
+          beats to jaw-dropping solos and their commitment to storytelling
+          through the universal language of music.
+        </p>
+        <p class="mb-4">
+          Join me as we celebrate the raw talent, dedication, and creativity of
+          young drummers around the world.
+        </p>
+        <p>D2W is a partner project of <b>Drumming Connects Us</b></p>
+      </div>
+    </div>
+
+    <Footer />
+  </body>
+</html>

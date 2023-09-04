@@ -1,0 +1,17 @@
+---
+interface Props {
+  text: string;
+  href: string;
+}
+const { text, href } = Astro.props;
+const url = Astro.url.pathname;
+---
+
+<div class="relative">
+  {
+    href == url && (
+      <hr class="absolute -bottom-2 left-0 w-full border-violet-400 " />
+    )
+  }
+  <a href={href}>{text}</a>
+</div>

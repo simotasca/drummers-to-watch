@@ -1,0 +1,121 @@
+
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-ThinItalic.ttf");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-Thin.ttf");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-SemiBoldItalic.ttf");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-MediumItalic.ttf");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-LightItalic.ttf");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-ExtraLightItalic.ttf");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-ExtraLight.ttf");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-ExtraBoldItalic.ttf");
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-ExtraBlackItalic.ttf");
+  font-weight: ExtraBlack;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-ExtraBlack.ttf");
+  font-weight: ExtraBlack;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-BoldItalic.ttf");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-BlackItalic.ttf");
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Byotone";
+  src: url("/fonts/byo/Byotone-Black.ttf");
+  font-weight: 900;
+  font-style: normal;
+}

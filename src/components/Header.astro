@@ -1,0 +1,136 @@
+---
+import NavLink from "./NavLink.astro";
+---
+
+<x-header class="contents">
+  <!-- SIDEBAR -->
+  <div
+    id="sidebar"
+    class="fixed inset-0 w-screen h-screen bg-neutral-900 translate-x-full transition-transform duration-300 z-50 sm:translate-x-full">
+    <div class="relative w-full h-full">
+      <img
+        class="absolute pointer-events-none top-0 left-1/2 -translate-x-1/2 mx-auto w-[100vw] max-h-[90vh] -translate-y-[42%] opacity-10"
+        src="/logo.svg"
+      />
+      <img
+        class="absolute pointer-events-none bottom-0 left-1/2 -translate-x-1/2 mx-auto w-[100vw] max-h-[90vh] translate-y-[60%] opacity-10 mt-8"
+        src="/logo.svg"
+      />
+
+      <div
+        class="h-screen grid grid-rows-[auto_1fr] place-items-center p-4 z-10">
+        <button class="block w-8 p-1 ml-auto sidebar-toggle text-right">
+          <img class="" src="/hamburger.svg" />
+        </button>
+        <div>
+          <div
+            class="w-fit mx-auto text-4xl font-semibold flex flex-col gap-6 mb-16">
+            <NavLink text="Video " href="/" />
+            <NavLink text="About" href="/about" />
+          </div>
+
+          <div class="flex justify-center gap-4 text-center text-xl">
+            <div class="text-neutral-400">IT</div>
+            <div>|</div>
+            <div>EN</div>
+          </div>
+
+          <div class="mt-4 mx-auto w-fit">
+            <div class="flex items-center justify-center gap-2 -mb-1">
+              <img src="/phone.svg" class="w-4 inline" />
+              <span>+39 333 38471126</span>
+            </div>
+            <div class="flex items-center justify-center gap-2">
+              <img src="/mail.svg" class="w-4 inline translate-y-0.5" />
+              <span>contacts@dtw.com</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center gap-3 mt-4">
+            <a href="#">
+              <img src="/youtube.svg" />
+            </a>
+            <a href="#">
+              <img src="/youtube.svg" />
+            </a>
+            <a href="#">
+              <img src="/youtube.svg" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div
+    class="block bg-gradient-to-b from-neutral-950 to-transparent text-white">
+    <div class="max-w-screen-xl mx-auto flex justify-between p-4">
+      <img class="w-8 md:w-12" src="/logo.svg" alt="" />
+
+      <div
+        class="hidden sm:flex justify-between items-center gap-1 md:gap-2 font-medium font-mont">
+        <button class="text-neutral-400">IT</button>
+        <div class="w-[1px] h-[10px] bg-neutral-400 mx-2"></div>
+        <button>EN</button>
+
+        <div class="w-9 md:w-12"></div>
+
+        <NavLink text="Video" href="/" />
+        <div class="w-5"></div>
+        <NavLink text="About" href="/about" />
+
+        <div class="w-9 md:w-12"></div>
+
+        <div class="text-xs text-neutral-300">
+          <div class="flex items-center justify-end gap-2">
+            <img src="/phone.svg" class="w-3 inline" />
+            <span>+39 333 38471126</span>
+          </div>
+          <div class="flex items-center justify-end gap-2">
+            <img src="/mail.svg" class="w-3 inline translate-y-px" />333
+            <span>contacts@dtw.com</span>
+          </div>
+        </div>
+
+        <div class="w-2 md:w-0"></div>
+
+        <a href="#">
+          <img src="/youtube.svg" />
+        </a>
+        <a href="#">
+          <img src="/youtube.svg" />
+        </a>
+        <a href="#">
+          <img src="/youtube.svg" />
+        </a>
+      </div>
+
+      <button class="sidebar-toggle sm:hidden">
+        <img class="w-8 sm:w-12 p-1 opacity-80" src="/hamburger.svg" alt="" />
+      </button>
+    </div>
+  </div>
+</x-header>
+
+<script>
+  customElements.define(
+    "x-header",
+    class CustomHeader extends HTMLElement {
+      constructor() {
+        super();
+
+        const sidebar = this.querySelector("#sidebar")!;
+        const toggles = this.querySelectorAll<HTMLButtonElement>(
+          "button.sidebar-toggle"
+        );
+
+        toggles.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            sidebar.classList.toggle("translate-x-full");
+          });
+        });
+      }
+    }
+  );
+</script>
