@@ -5,7 +5,7 @@ interface Props {
 }
 const { text, href } = Astro.props;
 let url = Astro.url.pathname;
-if (url.endsWith("/")) url = url.slice(0, -1);
+if (url != "/" && url.endsWith("/")) url = url.slice(0, -1);
 ---
 
 <div class="relative">
