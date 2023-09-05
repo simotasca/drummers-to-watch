@@ -6,14 +6,14 @@ import NavLink from "./NavLink.astro";
   <!-- SIDEBAR -->
   <div
     id="sidebar"
-    class="fixed inset-0 w-screen h-screen bg-neutral-900 translate-x-full transition-transform duration-300 z-50 sm:translate-x-full">
+    class="fixed inset-0 w-full h-full bg-neutral-900 translate-x-full transition-transform duration-300 z-50 sm:translate-x-full">
     <div class="relative w-full h-full">
       <img
-        class="absolute pointer-events-none top-0 left-1/2 -translate-x-1/2 mx-auto w-[100vw] max-h-[90vh] -translate-y-[42%] opacity-10"
+        class="absolute pointer-events-none top-0 left-1/2 -translate-x-1/2 mx-auto w-full max-h-[90%] -translate-y-[42%] opacity-10"
         src="/logo.svg"
       />
       <img
-        class="absolute pointer-events-none bottom-0 left-1/2 -translate-x-1/2 mx-auto w-[100vw] max-h-[90vh] translate-y-[60%] opacity-10 mt-8"
+        class="absolute pointer-events-none bottom-0 left-1/2 -translate-x-1/2 mx-auto w-full max-h-[90%] translate-y-[60%] opacity-10 mt-8 transition-all"
         src="/logo.svg"
       />
 
@@ -31,16 +31,16 @@ import NavLink from "./NavLink.astro";
 
           <div class="flex justify-center gap-4 text-center text-xl">
             <div class="text-neutral-400">IT</div>
-            <div>|</div>
+            <div class="text-neutral-400">|</div>
             <div>EN</div>
           </div>
 
           <div class="mt-4 mx-auto w-fit">
-            <div class="flex items-center justify-center gap-2 -mb-1">
+            <div class="flex items-center justify-center gap-2 -mb-1 -translate-x-2">
               <img src="/phone.svg" class="w-4 inline" />
               <span>+39 333 38471126</span>
             </div>
-            <div class="flex items-center justify-center gap-2">
+            <div class="flex items-center justify-center gap-2 -translate-x-2">
               <img src="/mail.svg" class="w-4 inline translate-y-0.5" />
               <span>contacts@dtw.com</span>
             </div>
@@ -88,7 +88,7 @@ import NavLink from "./NavLink.astro";
             <span>+39 333 38471126</span>
           </div>
           <div class="flex items-center justify-end gap-2">
-            <img src="/mail.svg" class="w-3 inline translate-y-px" />333
+            <img src="/mail.svg" class="w-3 inline translate-y-px" />
             <span>contacts@dtw.com</span>
           </div>
         </div>
@@ -96,13 +96,13 @@ import NavLink from "./NavLink.astro";
         <div class="w-2 md:w-0"></div>
 
         <a href="#">
-          <img src="/youtube.svg" />
+          <img class="w-5 md:w-6" src="/youtube.svg" />
         </a>
         <a href="#">
-          <img src="/youtube.svg" />
+          <img class="w-5 md:w-6" src="/youtube.svg" />
         </a>
         <a href="#">
-          <img src="/youtube.svg" />
+          <img class="w-5 md:w-6" src="/youtube.svg" />
         </a>
       </div>
 

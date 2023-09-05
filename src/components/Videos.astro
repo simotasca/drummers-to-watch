@@ -2,24 +2,57 @@
 import { drummers } from "../videos.json";
 ---
 
-<x-videos data-drummers={JSON.stringify(drummers)} class="contents">
-  <div id="here" class="contents"></div>
+{
+  drummers.map((d) => (
+    <div
+      data-video
+      style="scroll-snap-align: start;"
+      class="h-screen w-screen grid place-items-center py-6 px-6 mx-auto max-w-xs">
+      <video class="h-full w-full object-contain" src={d.video} controls />
+    </div>
+  ))
+}
+
+<script>
+  let timeout: number;
+  const videos = document.querySelectorAll<HTMLVideoElement>(
+    "div[data-video] > video"
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        clearTimeout(timeout);
+        const video = entry.target as HTMLVideoElement;
+        videos.forEach((v) => {
+          v.pause();
+          v.currentTime = 0;
+        });
+        timeout = setTimeout(() => {
+          video.play();
+        }, 200);
+      }
+    });
+  });
+  videos.forEach((v) => {
+    observer.observe(v);
+    v.addEventListener("ended", () => {
+      window.scrollBy({ top: 100 });
+    });
+  });
+</script>
+
+<!--   <x-videos data-drummers={JSON.stringify(drummers)} class="contents">
   <div
     id="loading-indicator"
     class="h-40 grid place-items-center text-xl cols-span-full"
-    style="scroll-snap-align: end;">
+    style="scroll-snap-align: start;">
     <span>LOADING MORE...</span>
   </div>
-</x-videos>
-
+  <div id="here" class="contents"></div>
+</x-videos> -->
+<!-- 
 <script>
-  interface Drummer {
-    name: string;
-    ig: string;
-    video: string;
-    age: number;
-  }
-
   customElements.define(
     "x-videos",
     class VideoElement extends HTMLElement {
@@ -69,7 +102,9 @@ import { drummers } from "../videos.json";
           social.className =
             "absolute top-0 left-full w-6 h-full translate-x-1 pt-1";
           social.innerHTML = `
-            <img src="/youtube.svg" class="block w-10 origin-center rotate-90" />
+            <a>
+              <img src="/youtube.svg" class="block w-10 origin-center rotate-90" />
+            </a>
             <br/>
             <p style="text-shadow: 0 0 10px black" class="text-xl whitespace-nowrap rotate-90 translate-x-4 origin-top">
               ${drummer.name}, ${String(drummer.age)}
@@ -101,4 +136,4 @@ import { drummers } from "../videos.json";
       }
     }
   );
-</script>
+</script> -->

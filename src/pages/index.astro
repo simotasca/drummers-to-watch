@@ -20,46 +20,50 @@ import Videos from "../components/Videos.astro";
       href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <style>
+      html, body {
+        scroll-snap-type: y mandatory;
+        height: 100%;
+      }
+    </style>
   </head>
   <body class="bg-neutral-900 font-dark text-white">
     <BackgroundImage />
 
     <div
-      class="h-screen overflow-y-auto overflow-x-hidden"
-      style="scroll-snap-type: y mandatory;">
-      <div style="scroll-snap-align: end;" class="min-h-screen grid grid-rows-[auto_1fr]">
-        <Header />
+      style="scroll-snap-align: start;"
+      class="min-h-full grid grid-rows-[auto_1fr]">
+      <Header />
 
-        <main
-          class="container max-w-2xl mx-auto text-center place-self-center mb-16 p-6">
-          <div class="mx-auto w-11/12 max-w-lg text-right">
-            <span class="mr-2">
-              Created by <b class="font-semibold">Liam Menneci</b>
-            </span>
-            <img
-              class="w-full max-w-[80vw]"
-              src="/logo-text.svg"
-              alt="logo drummers to watch"
-            />
-          </div>
-          <h1 class="text-4xl sm:text-5xl leading-[1] mt-2 font-semibold">
-            Find out the best young drumming talents around the world!
-          </h1>
-         
-          <a href="#videos">
-            <button
-              class="text-xl font-medium border-b border-b-violet-400 py-2 mt-12 sm:mt-4">
-              WATCH VIDEO
-            </button>
-          </a>
-        </main>
-      </div>
+      <main
+        class="container max-w-2xl mx-auto text-center place-self-center mb-16 p-6">
+        <div class="mx-auto w-11/12 max-w-lg text-right">
+          <span class="mr-2">
+            Created by <b class="font-semibold">Liam Menneci</b>
+          </span>
+          <img
+            class="w-full max-w-[80vw]"
+            src="/logo-text.svg"
+            alt="logo drummers to watch"
+          />
+        </div>
+        <h1 class="text-4xl sm:text-5xl leading-[1] mt-2 font-semibold">
+          Find out the best young drumming talents around the world!
+        </h1>
 
-      <Videos />
+        <a href="#videos">
+          <button
+            class="text-xl font-medium border-b border-b-violet-400 py-2 mt-12 sm:mt-4">
+            WATCH VIDEO
+          </button>
+        </a>
+      </main>
+    </div>
 
-      <div style="scroll-snap-align: end;">
-        <Footer />
-      </div>
+    <Videos />
+
+    <div style="scroll-snap-align: start;">
+      <Footer />
     </div>
   </body>
 </html>
