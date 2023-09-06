@@ -21,8 +21,9 @@ import Videos from "../components/Videos.astro";
       rel="stylesheet"
     />
     <style>
-      html, body {
-        scroll-snap-type: y mandatory;
+      html,
+      body {
+        /* scroll-snap-type: y mandatory; */
         height: 100%;
       }
     </style>
@@ -62,7 +63,7 @@ import Videos from "../components/Videos.astro";
 
     <Videos />
 
-    <div style="scroll-snap-align: start;">
+    <div id="footer" class="hidden" style="scroll-snap-align: start;">
       <Footer />
     </div>
   </body>

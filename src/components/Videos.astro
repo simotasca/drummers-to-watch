@@ -2,138 +2,110 @@
 import { drummers } from "../videos.json";
 ---
 
-{
-  drummers.map((d) => (
+<div id="videos-container" class="contents">
+  <div
+    id="loading-placeholder"
+    data-drummers={JSON.stringify(drummers)}
+    style="scroll-snap-align: start;"
+    class="h-full w-full relative mx-auto">
     <div
-      data-video
-      style="scroll-snap-align: start;"
-      class="h-screen w-screen grid place-items-center py-6 px-6 mx-auto max-w-xs">
-      <video class="h-full w-full object-contain" src={d.video} controls />
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-[9/16] max-w-full w-[320px] max-h-[calc(100%)] p-6 object-contain bg-neutral-700 opacity-10 animate-pulse">
     </div>
-  ))
-}
+  </div>
+</div>
 
 <script>
-  let timeout: number;
-  const videos = document.querySelectorAll<HTMLVideoElement>(
-    "div[data-video] > video"
+  const container =
+    document.querySelector<HTMLDivElement>("#videos-container")!;
+  let loader = document.querySelector<HTMLDivElement>("#loading-placeholder")!;
+  const drummers: any[] = JSON.parse(loader.dataset.drummers!);
+  let videos: HTMLVideoElement[] = [];
+
+  let isLoading = false;
+  let id = 0;
+
+  const videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        
+        const video = entry.target as HTMLVideoElement;
+
+        videos.forEach((vid) => {
+          if (vid === video) return;
+          vid.pause();
+          vid.currentTime = 0;
+        });
+
+        if (!video.paused) return;
+
+        video.muted = false;
+        video.play().catch(() => {
+          console.log("CANNOTTT");
+          video.muted = true;
+          video.play();
+        });
+      });
+    },
+    {
+      threshold: 1,
+    }
   );
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        clearTimeout(timeout);
-        const video = entry.target as HTMLVideoElement;
-        videos.forEach((v) => {
-          v.pause();
-          v.currentTime = 0;
-        });
-        timeout = setTimeout(() => {
-          video.play();
-        }, 200);
-      }
-    });
-  });
-  videos.forEach((v) => {
-    observer.observe(v);
-    v.addEventListener("ended", () => {
-      window.scrollBy({ top: 100 });
-    });
-  });
-</script>
+    const [entry] = entries;
 
-<!--   <x-videos data-drummers={JSON.stringify(drummers)} class="contents">
-  <div
-    id="loading-indicator"
-    class="h-40 grid place-items-center text-xl cols-span-full"
-    style="scroll-snap-align: start;">
-    <span>LOADING MORE...</span>
-  </div>
-  <div id="here" class="contents"></div>
-</x-videos> -->
-<!-- 
-<script>
-  customElements.define(
-    "x-videos",
-    class VideoElement extends HTMLElement {
-      private drummers: Drummer[];
-      private loadingIndicator!: HTMLDivElement;
+    if (!entry.isIntersecting || isLoading) return;
 
-      constructor() {
-        super();
-        this.drummers = JSON.parse(this.dataset.drummers || "[]");
-        this.loadingIndicator =
-          document.querySelector<HTMLDivElement>("#loading-indicator")!;
+    isLoading = true;
 
-        let observer = new IntersectionObserver((entries) => {
-          if (this.drummers.length == 0) return;
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              this.addVideos();
-            } else {
-            }
-          });
-        });
+    let promises = [];
+    let newVideos: HTMLDivElement[] = [];
 
-        observer.observe(this.loadingIndicator);
-      }
+    for (const drummer of drummers.splice(0, 2)) {
+      const container = document.createElement("div");
+      container.className = "h-full w-full relative mx-auto";
+      container.style.scrollSnapAlign = "start";
+      container.id = "video-" + id;
+      id++;
 
-      async addVideos() {
-        const promises = [];
-        const videos: HTMLDivElement[] = [];
+      const video = document.createElement("video");
+      video.className =
+        "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 " +
+        "aspect-[9/16] max-w-full w-[320px] max-h-[calc(100%-4rem)] object-contain";
+      video.src = drummer.video;
+      video.controls = true;
 
-        for (const drummer of this.drummers.splice(0, 3)) {
-          const container = document.createElement("div");
-          container.className =
-            "h-screen w-screen grid place-items-center py-6 px-6 max-w-[320px] mx-auto";
-          container.style.scrollSnapAlign = "start";
+      container.appendChild(video);
+      newVideos.push(container);
 
-          const videoContainer = document.createElement("div");
-          videoContainer.className = "relative";
-          container.appendChild(videoContainer);
-
-          const video = document.createElement("video");
-          video.className = "object-contain max-h-full w-full";
-          video.src = drummer.video;
-          video.controls = true;
-          videoContainer.appendChild(video);
-
-          const social = document.createElement("div");
-          social.className =
-            "absolute top-0 left-full w-6 h-full translate-x-1 pt-1";
-          social.innerHTML = `
-            <a>
-              <img src="/youtube.svg" class="block w-10 origin-center rotate-90" />
-            </a>
-            <br/>
-            <p style="text-shadow: 0 0 10px black" class="text-xl whitespace-nowrap rotate-90 translate-x-4 origin-top">
-              ${drummer.name}, ${String(drummer.age)}
-            </p>
-          `;
-          videoContainer.appendChild(social);
-
-          promises.push(
-            new Promise((resolve) => {
-              video.addEventListener("loadeddata", () => {
-                resolve(null);
-              });
-            })
-          );
-          videos.push(container);
-        }
-
-        Promise.all(promises).then(async () => {
-          setTimeout(() => {
-            console.log("loaded all!");
-            for (const video of videos) {
-              document
-                .querySelector<HTMLDivElement>("#here")
-                ?.appendChild(video);
-            }
-            if (this.drummers.length == 0) this.loadingIndicator.remove();
-          }, 400);
-        });
-      }
+      promises.push(
+        new Promise((resolve) => {
+          if (video.readyState == 4) return resolve(null);
+          video.addEventListener("loadeddata", () => resolve(null));
+        })
+      );
     }
-  );
-</script> -->
+
+    Promise.all(promises).then(async () => {
+      await new Promise<void>((r) => setTimeout(() => r(), 300));
+      loader.remove();
+      newVideos.forEach((videoContainer, idx) => {
+        container.appendChild(videoContainer);
+        const video = videoContainer.querySelector("video")!;
+        videoObserver.observe(video);
+        videos.push(video);
+      });
+      if (drummers.length > 0) {
+        container.appendChild(loader);
+      } else {
+        document
+          .querySelector<HTMLDivElement>("#footer")!
+          .classList.remove("hidden");
+      }
+      isLoading = false;
+    });
+  });
+
+  observer.observe(loader);
+</script>

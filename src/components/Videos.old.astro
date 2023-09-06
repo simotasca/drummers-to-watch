@@ -1,0 +1,78 @@
+---
+import { drummers } from "../videos.json";
+---
+
+{
+  drummers.map((d, idx) => (
+    <div
+      id={idx == 0 ? "videos" : undefined}
+      data-video={d.video}
+      style="scroll-snap-align: start;"
+      class="h-full w-full relative mx-auto">
+      <div class="loader absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="border-white opacity-70 border-8 w-16 h-16 border-t-transparent rounded-[100%] animate-spin origin-center" />
+      </div>
+    </div>
+  ))
+}
+
+<script>
+  let timeout: number;
+  const videos = document.querySelectorAll<HTMLDivElement>("div[data-video]");
+
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      videos.forEach((v) => {
+        if (v === entry.target) return;
+
+        const vid = v.querySelector<HTMLVideoElement>("video");
+
+        if (!vid) return;
+
+        vid.pause();
+        vid.currentTime = 0;
+      });
+      setTimeout(() => {
+        (entry.target as HTMLVideoElement).play();
+      }, 200);
+      console.log("PLAYY");
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const videoContainer = entry.target as HTMLDivElement;
+
+      if (videoContainer.dataset.loaded == "true") {
+        return;
+      }
+
+      videoContainer.dataset.loaded = "true";
+
+      const video = document.createElement("video");
+      video.className =
+        "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 " +
+        "aspect-[9/16] max-w-full w-[320px] max-h-[calc(100%)] p-6 object-contain";
+      video.src = videoContainer.dataset.video!;
+      video.controls = true;
+
+      video.addEventListener("loadeddata", () => {
+        videoContainer.querySelector(".loader")?.remove();
+        videoContainer.appendChild(video);
+        videoObserver.observe(video);
+      });
+
+      video.addEventListener("ended", () => {
+        console.log("ONEND");
+        window.scrollBy({ top: 100 });
+      });
+    });
+  });
+
+  videos.forEach((v) => {
+    observer.observe(v);
+  });
+</script>
