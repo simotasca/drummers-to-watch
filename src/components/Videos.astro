@@ -42,7 +42,6 @@ import { drummers } from "../videos.json";
 
         video.muted = false;
         video.play().catch(() => {
-          console.log("CANNOTTT");
           video.muted = true;
           video.play();
         });
@@ -70,14 +69,45 @@ import { drummers } from "../videos.json";
       container.id = "video-" + id;
       id++;
 
-      const video = document.createElement("video");
-      video.className =
+      const videoContainer = document.createElement("div");
+      videoContainer.className =
         "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 " +
-        "aspect-[9/16] max-w-full w-[320px] max-h-[calc(100%-4rem)] object-contain";
+        "aspect-[9/16] max-w-full pr-8 w-[320px] max-h-[calc(100%-4rem)]";
+
+      const videoContainerInner = document.createElement("div");
+      videoContainerInner.style.position = "relative";
+      videoContainerInner.className = "w-full h-full";
+
+      const video = document.createElement("video");
+      video.className = "w-full h-full object-contain";
       video.src = drummer.video;
       video.controls = true;
 
-      container.appendChild(video);
+      const info = document.createElement("a");
+      info.style.position = "absolute";
+      info.style.left = "100%";
+      info.style.top = "0";
+      info.style.display = "flex";
+      info.style.gap = "0.7rem";
+      info.style.rotate = "90deg";
+      info.style.transformOrigin = "left";
+      info.style.translate = "15px 15px";
+
+      // = "position:absolute; right: 0; top:0; display:flex; gap: 0.7rem; align-items: center; rotate: 90deg; transform-origin: left;"
+      // .className =
+      //   "absolute right-0 top-0 flex gap-3 items-center rotate-90 origin-left translate-x-3 -translate-y-2";
+      info.innerHTML = `
+        <img src="/youtube.svg" style="width: 40px" />
+        <p class="whitespace-nowrap pb-0.5 font-semibold">${drummer.name}</p>
+      `;
+      if (drummer.ig) info.href = drummer.ig;
+      info.target = "_blank";
+
+      videoContainerInner.appendChild(video);
+      videoContainerInner.appendChild(info);
+      videoContainer.appendChild(videoContainerInner);
+      container.appendChild(videoContainer);
+
       newVideos.push(container);
 
       promises.push(

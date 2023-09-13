@@ -2,127 +2,121 @@
   "drummers": [
     {
       "name": "John Miles Brockman",
-      "age": 21,
-      "ig": "http://www.instagram.com",
+      "age": 10,
+      "ig": "https://www.instagram.com/johnmilesbrockman/",
       "video": "/videos/drummerstowatch_0404_johnmilesbrockman.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
+      "name": "Krystel Brenes",
+      "age": 11,
+      "ig": "https://www.instagram.com/krystelbrenes/",
       "video": "/videos/drummerstowatch_0407_krystelbrenes.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
+      "name": "Gavin Zhou",
+      "age": 9,
+      "ig": "https://www.instagram.com/gavinzhou_zy/",
       "video": "/videos/drummerstowatch_0702_gavinzhou_text.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
+      "name": "Yua Ohta",
+      "age": 12,
+      "ig": "https://www.instagram.com/yuka_ohta_perc/",
       "video": "/videos/drummerstowatch_0703_yuaohta.mp4"
     },
     {
-      "name": "",
-      "age": 21,
+      "name": "Tyler Baker",
+      "age": 15,
       "ig": "",
       "video": "/videos/drummerstowatch_0905_tylerbaker.mp4"
     },
     {
-      "name": "",
-      "age": 21,
+      "name": "Gin Kawano",
+      "age": 11,
       "ig": "",
       "video": "/videos/drummerstowatch_1104_ginkawano.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
+      "name": "Caroll Rock",
+      "age": 12,
+      "ig": "https://www.instagram.com/carollrock_/",
       "video": "/videos/drummerstowatch_1402_carollrock.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
+      "name": "Cai Tongxin",
+      "age": 7,
+      "ig": "https://www.instagram.com/cai_tongxin/",
       "video": "/videos/drummerstowatch_1403_caitongxin.mp4"
     },
     {
-      "name": "",
-      "age": 21,
+      "name": "Julieta Astorga",
+      "age": 12,
       "ig": "",
       "video": "/videos/drummerstowatch_1605_julietaastorga.mp4"
     },
     {
-      "name": "",
-      "age": 21,
+      "name": "Aiwen Voth",
+      "age": 11,
       "ig": "",
       "video": "/videos/drummerstowatch_1804_aiwenvoth.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
+      "name": "Thomas Thunder",
+      "age": 15,
+      "ig": "https://www.instagram.com/thomasthunder_drums/",
       "video": "/videos/drummerstowatch_2102_thomasthunder.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
+      "name": "Allegra Care",
+      "age": 10,
+      "ig": "https://www.instagram.com/allegra_care/",
       "video": "/videos/drummerstowatch_2103_allegracare.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
+      "name": "Savannah Tweedt",
+      "age": 17,
+      "ig": "https://www.instagram.com/savannahtweedt/",
       "video": "/videos/drummerstowatch_2305_savannahtweedt.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
+      "name": "Gwen Curly",
+      "age": 14,
+      "ig": "https://www.instagram.com/curly_gwen/",
       "video": "/videos/drummerstowatch_2504_gwencurly.mp4"
     },
     {
-      "name": "",
-      "age": 21,
+      "name": "Gwen Shaluella",
+      "age": 14,
       "ig": "",
       "video": "/videos/drummerstowatch_2504_gwenshaluella.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
+      "name": "Rayhan Athalla Setiawan",
+      "age": 11,
+      "ig": "https://www.instagram.com/rayhan.athalla/",
       "video": "/videos/drummerstowatch_2706_rayhanathalla.mp4"
     },
     {
-      "name": "",
-      "age": 21,
+      "name": "Isaque Marins",
+      "age": 10,
       "ig": "",
       "video": "/videos/drummerstowatch_2803_isaquemarins.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
+      "name": "Keysa Mahadewa",
+      "age": 11,
+      "ig": "https://www.instagram.com/keysa_mahadewa/",
       "video": "/videos/drummerstowatch_3005_keysamahadewa.mp4"
     },
     {
-      "name": "",
-      "age": 21,
-      "ig": "",
-      "video": "/videos/drummerstowatch_luca_romeo (1).mp4"
-    },
-    {
-      "name": "",
-      "age": 21,
+      "name": "Luca Romeo",
+      "age": 13,
       "ig": "",
       "video": "/videos/drummerstowatch_luca_romeo.mp4"
     },
     {
-      "name": "",
-      "age": 21,
+      "name": "Kayla Zahara",
+      "age": 15,
       "ig": "",
       "video": "/videos/kayla_zahara_final.mp4"
     }
