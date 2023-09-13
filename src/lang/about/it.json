@@ -1,0 +1,20 @@
+{
+  "head": {
+    "title": "D2W | About",
+    "description": ""
+  },
+  "project": {
+    "title": "Il <span class='text-violet-400'>Progetto</span>",
+    "subtitle": "Hello and welcome to",
+    "paragraphs": [
+      "My name is <b>Liam Menneci.</b> I am a young drummer and content creator from Italy.",
+      "I have created <b>Drummers to Watch</b> to shine a spotlight on fellow talented young drummers from all corners of the world. This project serves as a platform for young musicians to inspire and uplift others in their own musical journey.",
+      "Through <b>interviews, collaborations, and drumming showcases</b>, D2W celebrates these drummers' exceptional abilities, from mesmerizing beats to jaw-dropping solos and their commitment to storytelling through the universal language of music.",
+      "Join me as we celebrate the raw talent, dedication, and creativity of young drummers around the world.",
+      "D2W is a partner project of <b>Drumming Connects Us</b>"
+    ]
+  },
+  "liam": {
+    "title": "Chi <span class='text-violet-400'>Sono</span>"
+  }
+}

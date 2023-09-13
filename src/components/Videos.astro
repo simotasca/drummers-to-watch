@@ -2,6 +2,7 @@
 import { drummers } from "../videos.json";
 ---
 
+<div id="videos"></div>
 <div id="videos-container" class="contents">
   <div
     id="loading-placeholder"
@@ -28,7 +29,7 @@ import { drummers } from "../videos.json";
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        
+
         const video = entry.target as HTMLVideoElement;
 
         videos.forEach((vid) => {

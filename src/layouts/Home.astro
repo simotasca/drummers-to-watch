@@ -1,0 +1,84 @@
+---
+import BackgroundImage from "../components/BackgroundImage.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import VideosComponent from "../components/Videos.astro";
+import { getTranslation } from "../lang.js";
+
+const t = await getTranslation(Astro.url);
+---
+
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{t.head.title}</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body class="bg-neutral-900 font-dark text-white">
+    <BackgroundImage />
+
+    <div class="min-h-full grid grid-rows-[auto_1fr]">
+      <Header />
+
+      <main
+        class="container max-w-2xl mx-auto text-center place-self-center mb-16 p-6">
+        <div class="mx-auto w-11/12 max-w-lg text-right">
+          <span class="mr-2">
+            {t.created}
+            <b class="font-semibold">Liam Menneci</b>
+          </span>
+          <img
+            class="w-full max-w-[80vw]"
+            src="/logo-text.svg"
+            alt="logo drummers to watch"
+          />
+        </div>
+        <h1 class="text-4xl sm:text-5xl leading-[1] mt-2 font-semibold">
+          {t.title}
+        </h1>
+
+        <a href="#videos">
+          <button
+            class="text-xl font-medium border-b border-b-violet-400 py-2 mt-12 sm:mt-4 uppercase">
+            {t.watch}
+          </button>
+        </a>
+      </main>
+    </div>
+
+    <VideosComponent />
+
+    <div id="footer">
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    const [main] = entries;
+    if (!main) return;
+    if (main.isIntersecting) {
+      document.querySelectorAll<HTMLVideoElement>("video").forEach((v) => {
+        v.pause();
+        v.currentTime = 0;
+      });
+    }
+  });
+  observer.observe(document.querySelector("main")!);
+</script>

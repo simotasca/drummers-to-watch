@@ -1,18 +1,19 @@
 ---
+import { getUrlInfo, getLangLink } from "../lang.js";
 interface Props {
   text: string;
   href: string;
 }
 const { text, href } = Astro.props;
-let url = Astro.url.pathname;
-if (url != "/" && url.endsWith("/")) url = url.slice(0, -1);
+const { pathname, lang } = getUrlInfo(Astro.url);
+const langHref = getLangLink(href, lang);
 ---
 
 <div class="relative">
   {
-    href == url && (
+    href == pathname && (
       <hr class="absolute -bottom-2 left-0 w-full border-violet-400 " />
     )
   }
-  <a href={href}>{text}</a>
+  <a href={langHref}>{text}</a>
 </div>

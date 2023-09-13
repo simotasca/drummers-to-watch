@@ -1,5 +1,12 @@
 ---
+import { getUrlLang } from "../lang.js";
+import { getTranslation } from "../lang.js";
+import LangSwitch from "./LangSwitch.astro";
+import Link from "./Link.astro";
 import NavLink from "./NavLink.astro";
+
+const t = await getTranslation(Astro.url);
+const currLang = getUrlLang(Astro.url);
 ---
 
 <x-header class="contents">
@@ -25,18 +32,27 @@ import NavLink from "./NavLink.astro";
         <div>
           <div
             class="w-fit mx-auto text-4xl font-semibold flex flex-col gap-6 mb-16">
-            <NavLink text="Video " href="/" />
-            <NavLink text="About" href="/about" />
+            <NavLink text={t.misc.nav.video} href="/" />
+            <NavLink text={t.misc.nav.about} href="/about" />
           </div>
 
           <div class="flex justify-center gap-4 text-center text-xl">
-            <div class="text-neutral-400">IT</div>
+            <LangSwitch
+              class={currLang == "it" ? "" : "text-neutral-400"}
+              lang="it">
+              IT
+            </LangSwitch>
             <div class="text-neutral-400">|</div>
-            <div>EN</div>
+            <LangSwitch
+              class={currLang == "en" ? "" : "text-neutral-400"}
+              lang="en">
+              EN
+            </LangSwitch>
           </div>
 
           <div class="mt-4 mx-auto w-fit">
-            <div class="flex items-center justify-center gap-2 -mb-1 -translate-x-2">
+            <div
+              class="flex items-center justify-center gap-2 -mb-1 -translate-x-2">
               <img src="/phone.svg" class="w-4 inline" />
               <span>+39 333 38471126</span>
             </div>
@@ -66,19 +82,29 @@ import NavLink from "./NavLink.astro";
   <div
     class="block bg-gradient-to-b from-neutral-950 to-transparent text-white">
     <div class="max-w-screen-xl mx-auto flex justify-between p-4">
-      <img class="w-8 md:w-12" src="/logo.svg" alt="" />
+      <Link href="/">
+        <img class="w-8 md:w-12" src="/logo.svg" alt="" />
+      </Link>
 
       <div
         class="hidden sm:flex justify-between items-center gap-1 md:gap-2 font-medium font-mont">
-        <button class="text-neutral-400">IT</button>
+        <LangSwitch
+          class={currLang == "it" ? "" : "text-neutral-400"}
+          lang="it">
+          IT
+        </LangSwitch>
         <div class="w-[1px] h-[10px] bg-neutral-400 mx-2"></div>
-        <button>EN</button>
+        <LangSwitch
+          class={currLang == "en" ? "" : "text-neutral-400"}
+          lang="en">
+          EN
+        </LangSwitch>
 
         <div class="w-9 md:w-12"></div>
 
-        <NavLink text="Video" href="/" />
+        <NavLink text={t.misc.nav.video} href="/" />
         <div class="w-5"></div>
-        <NavLink text="About" href="/about" />
+        <NavLink text={t.misc.nav.about} href="/about" />
 
         <div class="w-9 md:w-12"></div>
 
