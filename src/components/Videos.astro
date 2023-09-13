@@ -20,7 +20,7 @@ import { drummers } from "../videos.json";
     document.querySelector<HTMLDivElement>("#videos-container")!;
   let loader = document.querySelector<HTMLDivElement>("#loading-placeholder")!;
   const drummers: any[] = JSON.parse(loader.dataset.drummers!);
-  let videos: HTMLVideoElement[] = [];
+  let videos: { video: HTMLVideoElement; overlay: HTMLDivElement }[] = [];
 
   let isLoading = false;
   let id = 0;
@@ -30,25 +30,33 @@ import { drummers } from "../videos.json";
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
 
-        const video = entry.target as HTMLVideoElement;
+        const video = entry.target.querySelector<HTMLVideoElement>("video")!;
+        const overlay =
+          entry.target.querySelector<HTMLDivElement>("[data-overlay]")!;
 
         videos.forEach((vid) => {
-          if (vid === video) return;
-          vid.pause();
-          vid.currentTime = 0;
+          if (vid.video === video) return;
+          // vid.pause();
+          // vid.currentTime = 0;
+          vid.video.src = "";
+          vid.overlay.classList.remove("opacity-0");
         });
+
+        console.log(overlay);
+        overlay.classList.add("opacity-0");
 
         if (!video.paused) return;
 
         video.muted = false;
         video.play().catch(() => {
+          video.src = video.dataset.src!;
           video.muted = true;
           video.play();
         });
       });
     },
     {
-      threshold: 1,
+      threshold: 0.8,
     }
   );
 
@@ -65,9 +73,6 @@ import { drummers } from "../videos.json";
     for (const drummer of drummers.splice(0, 2)) {
       const container = document.createElement("div");
       container.className = "h-full w-full relative mx-auto";
-      container.style.scrollSnapAlign = "start";
-      container.id = "video-" + id;
-      id++;
 
       const videoContainer = document.createElement("div");
       videoContainer.className =
@@ -82,6 +87,7 @@ import { drummers } from "../videos.json";
       video.className = "w-full h-full object-contain";
       video.src = drummer.video;
       video.controls = true;
+      video.dataset.src = drummer.video;
 
       const info = document.createElement("a");
       info.style.position = "absolute";
@@ -92,10 +98,6 @@ import { drummers } from "../videos.json";
       info.style.rotate = "90deg";
       info.style.transformOrigin = "left";
       info.style.translate = "15px 15px";
-
-      // = "position:absolute; right: 0; top:0; display:flex; gap: 0.7rem; align-items: center; rotate: 90deg; transform-origin: left;"
-      // .className =
-      //   "absolute right-0 top-0 flex gap-3 items-center rotate-90 origin-left translate-x-3 -translate-y-2";
       info.innerHTML = `
         <img src="/youtube.svg" style="width: 40px" />
         <p class="whitespace-nowrap pb-0.5 font-semibold">${drummer.name}</p>
@@ -103,8 +105,19 @@ import { drummers } from "../videos.json";
       if (drummer.ig) info.href = drummer.ig;
       info.target = "_blank";
 
+      const overlay = document.createElement("div");
+      overlay.className =
+        "absolute w-full h-full left-0 top-0 bg-neutral-800 z-10 grid place-items-center pointer-events-none";
+      overlay.innerHTML = `
+        <div class="w-1/4 aspect-square bg-neutral-700 rounded-full grid place-items-center">
+          <div class="bg-neutral-400 w-1/3 aspect-square translate-x-1 translate-y-px" style="clip-path: polygon(100% 50%, 0 0, 0 100%);"></div>
+        </div>
+      `;
+      overlay.dataset.overlay = "true";
+
       videoContainerInner.appendChild(video);
       videoContainerInner.appendChild(info);
+      videoContainerInner.appendChild(overlay);
       videoContainer.appendChild(videoContainerInner);
       container.appendChild(videoContainer);
 
@@ -120,13 +133,18 @@ import { drummers } from "../videos.json";
 
     Promise.all(promises).then(async () => {
       await new Promise<void>((r) => setTimeout(() => r(), 300));
+
       loader.remove();
-      newVideos.forEach((videoContainer, idx) => {
+
+      newVideos.forEach((videoContainer) => {
         container.appendChild(videoContainer);
         const video = videoContainer.querySelector("video")!;
-        videoObserver.observe(video);
-        videos.push(video);
+        const overlay =
+          videoContainer.querySelector<HTMLDivElement>("[data-overlay]")!;
+        videoObserver.observe(videoContainer);
+        videos.push({ video, overlay });
       });
+
       if (drummers.length > 0) {
         container.appendChild(loader);
       } else {
@@ -134,6 +152,7 @@ import { drummers } from "../videos.json";
           .querySelector<HTMLDivElement>("#footer")!
           .classList.remove("hidden");
       }
+
       isLoading = false;
     });
   });
