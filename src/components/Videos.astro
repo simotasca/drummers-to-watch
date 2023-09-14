@@ -10,7 +10,8 @@ import { drummers } from "../videos.json";
     style="scroll-snap-align: start;"
     class="h-full w-full relative mx-auto">
     <div
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-[9/16] max-w-full w-[320px] max-h-[calc(100%)] p-6 object-contain bg-neutral-700 opacity-10 animate-pulse">
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-[9/16] max-w-full w-[320px] max-h-[calc(100%)] p-6 object-contain bg-neutral-700 opacity-10 animate-pulse grid place-items-end">
+      <div id="observe-loader"></div>
     </div>
   </div>
 </div>
@@ -132,7 +133,7 @@ import { drummers } from "../videos.json";
     }
 
     Promise.all(promises).then(async () => {
-      await new Promise<void>((r) => setTimeout(() => r(), 300));
+      // await new Promise<void>((r) => setTimeout(() => r(), 300));
 
       loader.remove();
 
@@ -157,5 +158,5 @@ import { drummers } from "../videos.json";
     });
   });
 
-  observer.observe(loader);
+  observer.observe(loader.querySelector("#observe-loader")!);
 </script>
