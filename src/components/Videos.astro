@@ -54,6 +54,15 @@ import { drummers } from "../videos.json";
           video.muted = true;
           video.play();
         });
+
+        if (
+          !document.querySelector(
+            `[data-sequence="${Number(video.dataset.sequence) + 1}"]`
+          )
+        ) {
+          // se non c'è il prossimo video
+          loadNextVideo();
+        }
       });
     },
     {
@@ -64,7 +73,15 @@ import { drummers } from "../videos.json";
   const observer = new IntersectionObserver((entries) => {
     const [entry] = entries;
 
-    if (!entry.isIntersecting || isLoading) return;
+    if (!entry.isIntersecting) return;
+
+    loadNextVideo();
+  });
+
+  observer.observe(loader.querySelector("#observe-loader")!);
+
+  function loadNextVideo() {
+    if (isLoading) return;
 
     isLoading = true;
 
@@ -89,6 +106,8 @@ import { drummers } from "../videos.json";
       video.src = drummer.video;
       video.controls = true;
       video.dataset.src = drummer.video;
+      id++;
+      video.dataset.sequence = String(id);
 
       const info = document.createElement("a");
       info.style.position = "absolute";
@@ -156,7 +175,5 @@ import { drummers } from "../videos.json";
 
       isLoading = false;
     });
-  });
-
-  observer.observe(loader.querySelector("#observe-loader")!);
+  }
 </script>
