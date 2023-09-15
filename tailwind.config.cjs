@@ -6,9 +6,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				dark: "'Darker Grotesque', sans-serif",
+				sans: "'DarkerGrotesque', sans-serif",
 				mont: "'Montserrat', sans-serif",
-				sans: "Byotone"
 			},
 			animation: {
 				rotation: 'spin 500s linear infinite',

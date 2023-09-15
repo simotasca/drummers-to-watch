@@ -10,7 +10,7 @@ import { drummers } from "../videos.json";
     style="scroll-snap-align: start;"
     class="h-full w-full relative mx-auto">
     <div
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-[9/16] max-w-full w-[320px] max-h-[calc(100%)] p-6 object-contain bg-neutral-700 opacity-10 animate-pulse grid place-items-end">
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-[9/16] max-w-full w-[320px] max-h-[calc(100%)] p-6 object-contain bg-neutral-700 opacity-10 animate-pulse grid place-items-center">
       <div id="observe-loader"></div>
     </div>
   </div>
@@ -119,7 +119,7 @@ import { drummers } from "../videos.json";
       info.style.transformOrigin = "left";
       info.style.translate = "15px 15px";
       info.innerHTML = `
-        <img src="/youtube.svg" style="width: 40px" />
+        <img src="/instagram.svg" style="width: 40px" />
         <p class="whitespace-nowrap pb-0.5 font-semibold">${drummer.name}</p>
       `;
       if (drummer.ig) info.href = drummer.ig;

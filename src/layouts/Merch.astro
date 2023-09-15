@@ -1,0 +1,63 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Link from "../components/Link.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D2W | Coming Soon</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body class="bg-neutral-900 font-sans text-white overflow-x-hidden">
+    <div class="grid grid-rows-[auto_1fr_auto] h-full">
+      <Header />
+      <div class="mx-auto text-center p-8 grid place-items-center pb-20">
+        <div class="w-fit">
+          <h1
+            class="relative block w-fit mx-auto text-4xl sm:text-6xl md:text-8xl font-mont font-black">
+            <div
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[200%] opacity-5">
+              <img class="w-full" src="/logo-text.svg" />
+            </div>
+            <span>
+              C<img
+                src="/logo.svg"
+                class="inline w-28 -translate-y-1 ml-0.5"
+              /><span>MING</span>
+              <span>
+                <span style="color: #D3D937">S</span><span
+                  style="color: #AE90CE">O</span
+                >O<span style="color: #D14F96;">N</span>
+              </span>
+            </span>
+          </h1>
+          <Link href="/">
+            <button
+              class="text-xl font-medium border-b border-b-violet-400 pb-2 mt-4 uppercase">
+              BACK TO HOME
+            </button>
+          </Link>
+        </div>
+      </div>
+      <div>
+        <Footer />
+      </div>
+    </div>
+  </body>
+</html>

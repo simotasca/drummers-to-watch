@@ -7,6 +7,9 @@ import NavLink from "./NavLink.astro";
 
 const t = await getTranslation(Astro.url);
 const currLang = getUrlLang(Astro.url);
+
+const youtube = "https://www.youtube.com/@liammenneci5403";
+const instagram = "https://www.instagram.com/liam_menneci/";
 ---
 
 <x-header class="contents">
@@ -34,6 +37,7 @@ const currLang = getUrlLang(Astro.url);
             class="w-fit mx-auto text-4xl font-semibold flex flex-col gap-6 mb-16">
             <NavLink text={t.misc.nav.video} href="/" />
             <NavLink text={t.misc.nav.about} href="/about" />
+            <NavLink text={t.misc.nav.merch} href="/merch" />
           </div>
 
           <div class="flex justify-center gap-4 text-center text-xl">
@@ -65,11 +69,12 @@ const currLang = getUrlLang(Astro.url);
             </a>
           </div>
 
-          <div class="flex items-center justify-center gap-3 mt-4 -translate-x-1">
-            <a href="#">
+          <div
+            class="flex items-center justify-center gap-3 mt-4 -translate-x-1">
+            <a href={instagram}>
               <img src="/instagram.svg" />
             </a>
-            <a href="#">
+            <a href={youtube}>
               <img src="/youtube.svg" />
             </a>
           </div>
@@ -81,7 +86,7 @@ const currLang = getUrlLang(Astro.url);
   <!-- HEADER -->
   <div
     class="block bg-gradient-to-b from-neutral-950 to-transparent text-white">
-    <div class="max-w-screen-xl mx-auto flex justify-between p-4">
+    <div class="max-w-screen-xl mx-auto flex justify-between items-center p-4">
       <Link href="/">
         <img class="w-8 md:w-12" src="/logo.svg" alt="" />
       </Link>
@@ -105,6 +110,8 @@ const currLang = getUrlLang(Astro.url);
         <NavLink text={t.misc.nav.video} href="/" />
         <div class="w-5"></div>
         <NavLink text={t.misc.nav.about} href="/about" />
+        <div class="w-5"></div>
+        <NavLink text={t.misc.nav.merch} href="/merch" />
 
         <div class="w-9 md:w-12"></div>
 
@@ -125,10 +132,10 @@ const currLang = getUrlLang(Astro.url);
 
         <div class="w-2 md:w-4"></div>
 
-        <a href="https://www.youtube.com/@liammenneci5403">
+        <a href={youtube}>
           <img class="w-5 md:w-6" src="/youtube.svg" />
         </a>
-        <a href="https://www.instagram.com/liam_menneci/">
+        <a href={instagram}>
           <img class="w-5 md:w-5 pb-px" src="/instagram.svg" />
         </a>
       </div>

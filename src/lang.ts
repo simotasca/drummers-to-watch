@@ -13,11 +13,12 @@ export async function getTranslation(url: URL, lang?: "it" | "en") {
     await import(`./lang/${currPathname}/${lang || currLang}.json`).catch(
       (e) => {
         console.error(e);
-        throw new Error(
-          `Translation not found for "${currPathname}" page, in language "${
-            lang || currLang
-          }"`
-        );
+        // throw new Error(
+        //   `Translation not found for "${currPathname}" page, in language "${
+        //     lang || currLang
+        //   }"`
+        // );
+        return { default: {} };
       }
     )
   )?.default;
