@@ -2,20 +2,18 @@
 interface HeadProps {
   title: string;
   description: string;
-  favicon: string;
-  opengraphImage: string;
-  jsonLDImage: string;
 }
 
 interface Props {
   props: HeadProps;
 }
 
-const { title, description, favicon, opengraphImage, jsonLDImage } =
-  Astro.props.props;
+const { title, description } = Astro.props.props;
 
+const favicon = new URL("/logo.svg", Astro.site!.origin).toString();
 const ogSiteName = "Drummers To Watch";
 const twitterImageAlt = "Drummers To Watch";
+const opengraphImage = new URL("/opengraph.jpg", Astro.site!.origin);
 
 const schema = JSON.stringify({
   "@context": "https://schema.org",
@@ -25,13 +23,11 @@ const schema = JSON.stringify({
   },
   headline: title,
   description: description,
-  image: jsonLDImage,
+  image: opengraphImage, // OK??
   datePublished: Intl.DateTimeFormat("en-EN", { dateStyle: "short" }).format(
     new Date()
   ),
 });
-
-console.log("UERREELLE", Astro.url);
 ---
 
 <meta charset="utf-8" />

@@ -4,27 +4,26 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import VideosComponent from "../components/Videos.astro";
-import { getTranslation } from "../lang.js";
+import { getTranslation, getUrlLang } from "../lang.js";
 import "../style.css";
 
 const t = await getTranslation(Astro.url);
+const currLang = getUrlLang(Astro.url);
 ---
 
-<html class="scroll-smooth" lang="en">
+<html class="scroll-smooth" lang={currLang}>
   <head>
-    <link rel="prefetch" href="/fonts/darker/DarkerGrotesque-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-    <link rel="prefetch" href="/fonts/darker/DarkerGrotesque-SemiBold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-    <link rel="prefetch" href="/fonts/darker/DarkerGrotesque-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
     <BaseHead
       props={{
         title: t.head.title,
-        description: t.head.description,
-        favicon: new URL("/logo.svg", Astro.site!.origin).toString(),
-        jsonLDImage: "",
-        opengraphImage: "",
+        description: t.head.description
       }}
     />
     <!-- FONT PRELOAD -->
+    <link rel="prefetch" href="/fonts/darker/DarkerGrotesque-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="prefetch" href="/fonts/darker/DarkerGrotesque-SemiBold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="prefetch" href="/fonts/darker/DarkerGrotesque-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="prefetch" href="/fonts/montserrat/Montserrat-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
     <style>
       html,
       body {
