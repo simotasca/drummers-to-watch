@@ -40,7 +40,7 @@ const instagram = "https://www.instagram.com/liam_menneci/";
             <NavLink text={t.misc.nav.merch} href="/merch" />
           </div>
 
-          <div class="flex justify-center gap-4 text-center text-lg font-mont">
+          <!-- <div class="flex justify-center gap-4 text-center text-lg font-mont">
             <LangSwitch
               class={currLang == "it" ? "" : "text-neutral-400"}
               lang="it">
@@ -52,22 +52,7 @@ const instagram = "https://www.instagram.com/liam_menneci/";
               lang="en">
               EN
             </LangSwitch>
-          </div>
-
-          <div class="mt-4 mx-auto w-fit">
-            <a
-              href="tel:+393356493415"
-              class="flex items-center justify-center gap-2 -mb-1 -translate-x-2">
-              <img src="/phone.svg" class="w-4 inline" />
-              <span>+39 333 38471126</span>
-            </a>
-            <a
-              href="mailto:contacts@dtw.com"
-              class="flex items-center justify-center gap-2 -translate-x-2">
-              <img src="/mail.svg" class="w-4 inline translate-y-0.5" />
-              <span>contacts@dtw.com</span>
-            </a>
-          </div>
+          </div> -->
 
           <div
             class="flex items-center justify-center gap-3 mt-4 -translate-x-1">
@@ -78,6 +63,23 @@ const instagram = "https://www.instagram.com/liam_menneci/";
               <img src="/youtube.svg" />
             </a>
           </div>
+
+          <div class="mt-2 mx-auto w-fit">
+            <!-- <a
+              href="tel:+393356493415"
+              class="flex items-center justify-center gap-2 -mb-1 -translate-x-2">
+              <img src="/phone.svg" class="w-4 inline" />
+              <span>+39 333 38471126</span>
+            </a> -->
+            <a
+              href="mailto:contacts@dtw.com"
+              class="flex items-center justify-center gap-2 -translate-x-2">
+              <img src="/mail.svg" class="w-4 inline translate-y-0.5" />
+              <span>contacts@dtw.com</span>
+            </a>
+          </div>
+
+          
         </div>
       </div>
     </div>
@@ -93,7 +95,7 @@ const instagram = "https://www.instagram.com/liam_menneci/";
 
       <div
         class="hidden sm:flex justify-between items-center gap-1 md:gap-2 font-medium font-mont">
-        <LangSwitch
+        <!-- <LangSwitch
           class={currLang == "it" ? "" : "text-neutral-400"}
           lang="it">
           IT
@@ -103,7 +105,7 @@ const instagram = "https://www.instagram.com/liam_menneci/";
           class={currLang == "en" ? "" : "text-neutral-400"}
           lang="en">
           EN
-        </LangSwitch>
+        </LangSwitch> -->
 
         <div class="w-9 md:w-12"></div>
 
@@ -118,15 +120,9 @@ const instagram = "https://www.instagram.com/liam_menneci/";
         <div class="text-xs text-neutral-300">
           <a
             class="flex items-center justify-end gap-2"
-            href="tel:+393356493415">
-            <img src="/phone.svg" class="w-3 inline" />
-            <span>+39 333 38471126</span>
-          </a>
-          <a
-            class="flex items-center justify-end gap-2"
             href="mailto:contacts@dtw.com">
-            <img src="/mail.svg" class="w-3 inline translate-y-px" />
             <span>contacts@dtw.com</span>
+            <img src="/mail.svg" class="w-4 inline translate-y-px" />
           </a>
         </div>
 
