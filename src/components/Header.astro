@@ -1,7 +1,6 @@
 ---
 import { getUrlLang } from "../lang.js";
 import { getTranslation } from "../lang.js";
-import LangSwitch from "./LangSwitch.astro";
 import Link from "./Link.astro";
 import NavLink from "./NavLink.astro";
 
@@ -10,6 +9,7 @@ const currLang = getUrlLang(Astro.url);
 
 const youtube = "https://www.youtube.com/@liammenneci5403";
 const instagram = "https://www.instagram.com/liam_menneci/";
+const mail = "drummerstowatch@gmail.com"
 ---
 
 <x-header class="contents">
@@ -72,10 +72,10 @@ const instagram = "https://www.instagram.com/liam_menneci/";
               <span>+39 333 38471126</span>
             </a> -->
             <a
-              href="mailto:contacts@dtw.com"
+              href={`mailto:${mail}`}
               class="flex items-center justify-center gap-2 -translate-x-2">
               <img src="/mail.svg" class="w-4 inline translate-y-0.5" />
-              <span>contacts@dtw.com</span>
+              <span>{mail}</span>
             </a>
           </div>
 
@@ -120,8 +120,8 @@ const instagram = "https://www.instagram.com/liam_menneci/";
         <div class="text-xs text-neutral-300">
           <a
             class="flex items-center justify-end gap-2"
-            href="mailto:contacts@dtw.com">
-            <span>contacts@dtw.com</span>
+            href={`mailto:${mail}`}>
+            <span>{mail}</span>
             <img src="/mail.svg" class="w-4 inline translate-y-px" />
           </a>
         </div>
