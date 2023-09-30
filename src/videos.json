@@ -1,6 +1,18 @@
 {
   "drummers": [
     {
+      "name": "Thomas Crescitelli",
+      "age": 13,
+      "ig": "",
+      "video": "/videos/Thomas_Crescitelli.mp4"
+    },
+    {
+      "name": "Tobias Holzner",
+      "age": 13,
+      "ig": "https://www.instagram.com/tobias.holzner01/",
+      "video": "/videos/Tobias_Holzner.mp4"
+    },
+    {
       "name": "John Miles Brockman",
       "age": 10,
       "ig": "https://www.instagram.com/johnmilesbrockman/",
@@ -83,12 +95,6 @@
       "age": 14,
       "ig": "https://www.instagram.com/curly_gwen/",
       "video": "/videos/drummerstowatch_2504_gwencurly.mp4"
-    },
-    {
-      "name": "Gwen Shaluella",
-      "age": 14,
-      "ig": "",
-      "video": "/videos/drummerstowatch_2504_gwenshaluella.mp4"
     },
     {
       "name": "Rayhan Athalla Setiawan",
