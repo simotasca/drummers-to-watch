@@ -1,6 +1,18 @@
 {
   "drummers": [
     {
+      "name": "Iris",
+      "age": 14,
+      "ig": "",
+      "video": "/videos/IRIS_DRUMMING.mp4"
+    },
+    {
+      "name": "Liam Kickbeat",
+      "age": 12,
+      "ig": "https://www.instagram.com/liam_kickbeat/",
+      "video": "/videos/Liam_kickbeat.mp4"
+    },
+    {
       "name": "Thomas Crescitelli",
       "age": 13,
       "ig": "",
