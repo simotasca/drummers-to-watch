@@ -1,6 +1,18 @@
 {
   "drummers": [
     {
+      "name": "Bernardo Caputo",
+      "age": 9,
+      "ig": "https://www.instagram.com/becaputo_drummer/",
+      "video": "Bernardo_Caputo.mp4"
+    },
+    {
+      "name": "Omelet Nuntakarn Veeraphan",
+      "age": 15,
+      "ig": "https://www.instagram.com/omelet_the_drummer/",
+      "video": "Omelet_Nuntakarn_Veeraphan.mp4"
+    },
+    {
       "name": "Iris",
       "age": 14,
       "ig": "",
