@@ -1,6 +1,12 @@
 {
   "drummers": [
     {
+      "name": "Michael",
+      "age": 7,
+      "ig": "",
+      "video": "Michael.mp4"
+    },
+    {
       "name": "Bernardo Caputo",
       "age": 9,
       "ig": "https://www.instagram.com/becaputo_drummer/",
