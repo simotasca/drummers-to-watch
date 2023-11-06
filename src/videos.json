@@ -4,19 +4,19 @@
       "name": "Michael",
       "age": 7,
       "ig": "",
-      "video": "Michael.mp4"
+      "video": "/videos/Michael.mp4"
     },
     {
       "name": "Bernardo Caputo",
       "age": 9,
       "ig": "https://www.instagram.com/becaputo_drummer/",
-      "video": "Bernardo_Caputo.mp4"
+      "video": "/videos/Bernardo_Caputo.mp4"
     },
     {
       "name": "Omelet Nuntakarn Veeraphan",
       "age": 15,
       "ig": "https://www.instagram.com/omelet_the_drummer/",
-      "video": "Omelet_Nuntakarn_Veeraphan.mp4"
+      "video": "/videos/Omelet_Nuntakarn_Veeraphan.mp4"
     },
     {
       "name": "Iris",
