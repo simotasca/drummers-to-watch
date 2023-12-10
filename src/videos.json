@@ -1,6 +1,18 @@
 {
   "drummers": [
     {
+      "name": "Jeremy Clement",
+      "age": 12,
+      "ig": "https://www.instagram.com/jeremyclement555/",
+      "video": "/videos/Jeremy_Clement_28112023.mp4"
+    },
+    {
+      "name": "Sarah Lynn",
+      "age": 12,
+      "ig": "https://www.instagram.com/sarahlynnja/",
+      "video": "/videos/Sarah_Lynn_14112023.mp4"
+    },
+    {
       "name": "Michael",
       "age": 7,
       "ig": "",
