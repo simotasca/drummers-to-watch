@@ -9,14 +9,14 @@ const currLang = getUrlLang(Astro.url);
 
 const youtube = "https://www.youtube.com/@liammenneci5403";
 const instagram = "https://www.instagram.com/liam_menneci/";
-const mail = "drummerstowatch@gmail.com"
+const mail = "drummerstowatch@gmail.com";
 ---
 
 <x-header class="contents">
   <!-- SIDEBAR -->
   <div
     id="sidebar"
-    class="fixed inset-0 w-full h-full bg-neutral-900 translate-x-full transition-transform duration-300 z-50 sm:translate-x-full">
+    class="fixed inset-0 w-full h-full bg-neutral-900 left-full transition-transform duration-300 z-50 sm:translate-x-0">
     <div class="relative w-full h-full">
       <img
         class="absolute pointer-events-none top-0 left-1/2 -translate-x-1/2 mx-auto w-full max-h-[90%] -translate-y-[42%] opacity-10"
@@ -78,8 +78,6 @@ const mail = "drummerstowatch@gmail.com"
               <span>{mail}</span>
             </a>
           </div>
-
-          
         </div>
       </div>
     </div>
@@ -157,7 +155,7 @@ const mail = "drummerstowatch@gmail.com"
 
         toggles.forEach((btn) => {
           btn.addEventListener("click", () => {
-            sidebar.classList.toggle("translate-x-full");
+            sidebar.classList.toggle("-translate-x-full");
           });
         });
       }
